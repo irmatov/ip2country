@@ -1,0 +1,21 @@
+{
+    "ListenAddress": ":8080",
+    "CacheLifetime": 3600,
+    "CacheType": "postgres",
+    "CacheParameters": "postgres://username:password@localhost/ip2country",
+    "Services": [
+        {
+            "URL": "http://geoip.nekudo.com/api/%v/en/short",
+            "ReplyPath": ["country", "name"],
+            "Rate": 1000,
+            "Period": 3600,
+            "Burst": 100
+        },
+        {
+            "URL": "http://freegeoip.net/json/%v",
+            "ReplyPath": ["country_name"],
+            "Rate": 15000,
+            "Period": 3600
+        }
+    ]
+}
